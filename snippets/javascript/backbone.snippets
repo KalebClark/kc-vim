@@ -1,0 +1,41 @@
+snippet bbview
+	var ${1:MyView} = Backbone.View.extend({
+		${2:el: ''},
+		${3:tagName: ''},
+
+		events: {
+			${4:}
+		},
+
+		initialize: function () {
+			${5:}
+		},
+									
+		render: function () {
+										  
+		}
+	});
+snippet bbcol
+	var ${1:Model} = Backbone.Model.extend({
+		initialize: function () {
+			console.log('Initialize $1 Model');
+		  
+		}
+	});
+
+	var $1s = Backbone.Collection.extend({
+		model: ${3:$1},
+		url: "${4}",
+		initialize: function() {
+			console.log('Initialize $1s Collection')	
+		}
+	});
+snippet bbreq
+	define([
+		'backbone'
+	],
+	function( Backbone ){
+		'use strict';	
+
+		${1}
+	});

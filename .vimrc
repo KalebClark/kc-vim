@@ -18,5 +18,12 @@ au BufNewFile,BufRead *.hbs set filetype=html
 :highlight conl ctermfg=green
 :match conl /console\..*(/
 
+execute pathogen#infect()
 
 set runtimepath+=$HOME/.vim/plugins
+
+function! Snip()
+    let shellcmd = 'grep -r snippit /Users/kalebclark/.vim/snippits'.a
+    let output=system(shellcmd)
+    echo output
+endfunction
