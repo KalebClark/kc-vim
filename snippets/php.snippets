@@ -30,7 +30,8 @@ snippet ?if
 	<?php endif ?>
 snippet pd
 	/* Var Dumper ============================= */
-	echo '<pre>'; var_dump($${0}); echo '</pre>';
+	echo '<bold>Dumping var $1</bold><br/>';
+	echo '<pre>'; var_dump( ${1:varname} ); echo '</pre>';
 snippet filtvi
 	$${1} = filter_var(${2:var}, FILTER_VALIDATE_INT);
 snippet filtss

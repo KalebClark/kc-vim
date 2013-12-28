@@ -11,3 +11,9 @@ snippet eval
 snippet jsdoc
 	/* ${1}
 	 * ${2:=====} */
+snippet conlog
+	console.log('VAR: ${1:varname}', $1);
+snippet st
+	setTimeout(function() {
+		${2}
+	}, ${1:1000});
