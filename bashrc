@@ -51,12 +51,10 @@ else
     PS1+="\[$COLOR_BLUE\]"
 fi
 
-
 PS1+="\u"
 PS1+="\[$COLOR_YELLOW\]@"
-PS1+="\[$COLOR_GREEN\]\h"
+PS1+="\[$COLOR_WHITE\]\h"
 PS1+="\[$COLOR_RESET\]"
-
 
 ##PS1+="\[$COLOR_WHITE\] -("
 PS1+="\[\$(git_color)\]"
