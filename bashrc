@@ -42,17 +42,28 @@ function bash_export {
 }
 
 # set cool prompt
+username=`whoami`
 PS1="${debian_chroot:+($debian_chroot)}"
-PS1+="\[$COLOR_RED\]\u@\h"
+#PS1+="\[$COLOR_RED\]\u@\h"
+if [[ $username =~ "root" ]]; then
+    PS1+="\[$COLOR_RED\]"
+else
+    PS1+="\[$COLOR_BLUE\]"
+fi
+
+
+PS1+="\u"
+PS1+="\[$COLOR_YELLOW\]@"
+PS1+="\[$COLOR_GREEN\]\h"
 PS1+="\[$COLOR_RESET\]"
 
 
 ##PS1+="\[$COLOR_WHITE\] -("
 PS1+="\[\$(git_color)\]"
 PS1+="\$(git_branch)"
-PS1+="\[$COLOR_WHITE\]"
-PS1+="\n>>\w \$ "
-##PS1+=":"
+PS1+="\[$COLOR_BLUE\]"
+PS1+="[\w] \$ "
+PS1+="\[$COLOR_RESET\]"
 
 
 export PS1
