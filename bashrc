@@ -50,9 +50,9 @@ PS1+="\[$COLOR_RESET\]"
 ##PS1+="\[$COLOR_WHITE\] -("
 PS1+="\[\$(git_color)\]"
 PS1+="\$(git_branch)"
-##PS1+="\[$COLOR_WHITE\])"
+PS1+="\[$COLOR_WHITE\]"
+PS1+="\n>>\w \$ "
 ##PS1+=":"
-PS1+="\n \w \$"
 
 
 export PS1
