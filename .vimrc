@@ -10,15 +10,20 @@ set cursorline
 set cursorcolumn
 nmap <C-N><C-N> :set invnumber<CR>
 
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
 :highligh LineNr term=bold cterm=NONE ctermfg=Grey ctermbg=DarkGrey
 
+:colorscheme elflord
 syn on
+
 au BufNewFile,BufRead *.hbs set filetype=html
 
 :highlight conl ctermfg=green
 :match conl /console\..*(/
 
-execute pathogen#infect()
 
 set runtimepath+=$HOME/.vim/plugins
 
