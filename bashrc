@@ -37,20 +37,23 @@ function git_branch {
   fi
 }
 
+function bash_export {
+    export PS1
+}
+
 # set cool prompt
 PS1="${debian_chroot:+($debian_chroot)}"
 PS1+="\[$COLOR_RED\]\u@\h"
 PS1+="\[$COLOR_RESET\]"
 
-#PS1+="\[$COLOR_WHITE\] -("
+
+##PS1+="\[$COLOR_WHITE\] -("
 PS1+="\[\$(git_color)\]"
 PS1+="\$(git_branch)"
-#PS1+="\[$COLOR_WHITE\])"
-#PS1+=":"
+##PS1+="\[$COLOR_WHITE\])"
+##PS1+=":"
+PS1+="\n \w \$"
 
-PS1+="\[$COLOR_BLUE\]\n \w"
-PS1+="\[$COLOR_BLUE\]"
-PS1+="\[$COLOR_RESET\]\$ "
 
 export PS1
 
