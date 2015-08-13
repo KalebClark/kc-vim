@@ -30,24 +30,25 @@ function git_branch {
 
   if [[ $git_status =~ $on_branch ]]; then
     local branch=${BASH_REMATCH[1]}
-    echo "$branch"
+    echo " -($branch)"
   elif [[ $git_status =~ $on_commit ]]; then
     local commit=${BASH_REMATCH[1]}
-    echo "$commit"
+    echo " -($commit)"
   fi
 }
 
 # set cool prompt
-export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 PS1="${debian_chroot:+($debian_chroot)}"
 PS1+="\[$COLOR_RED\]\u@\h"
 PS1+="\[$COLOR_RESET\]"
-PS1+="\[$COLOR_WHITE\]("
+
+#PS1+="\[$COLOR_WHITE\] -("
 PS1+="\[\$(git_color)\]"
 PS1+="\$(git_branch)"
-PS1+="\[$COLOR_WHITE\])"
-PS1+=":"
-PS1+="\[$COLOR_BLUE\]\w"
+#PS1+="\[$COLOR_WHITE\])"
+#PS1+=":"
+
+PS1+="\[$COLOR_BLUE\]\n \w"
 PS1+="\[$COLOR_BLUE\]"
 PS1+="\[$COLOR_RESET\]\$ "
 
