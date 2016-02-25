@@ -41,6 +41,10 @@ function bash_export {
     export PS1
 }
 
+function ssh_copy_key {
+    cat .ssh/id_rsa.pub | ssh $1 'cat >> .ssh/authorized_keys'
+}
+
 # set cool prompt
 username=`whoami`
 PS1="${debian_chroot:+($debian_chroot)}"
