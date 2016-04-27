@@ -1,0 +1,6 @@
+# git branch -av            (List all Branches)
+# git checkout <branch>     (Checkout <branch>
+# git branch -d <branch>    (Delete Branch)
+# git merge <branch>        (Merge <branch> into current branch (HEAD))
+# git reset --hard HEAD     (Reset all changes to last commit)
+# git reset --hard <commit> (Reset to specific commit)

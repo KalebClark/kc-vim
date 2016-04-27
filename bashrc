@@ -45,6 +45,7 @@ function ssh_copy_key {
     cat .ssh/id_rsa.pub | ssh $1 'cat >> .ssh/authorized_keys'
 }
 
+
 # set cool prompt
 username=`whoami`
 PS1="${debian_chroot:+($debian_chroot)}"
@@ -78,12 +79,39 @@ export PS1
 # umask 022
 
 # You may uncomment the following lines if you want `ls' to be colorized:
-export LS_OPTIONS='--color=auto'
-eval "`dircolors`"
-alias ls='ls $LS_OPTIONS'
+if [ "$(uname)" == "Darwin" ]; then
+    # Do something under Mac OS X platform        
+    unalias ls
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    # Do something under GNU/Linux platform
+    export LS_OPTIONS='--color=auto'
+    eval "`dircolors`"
+    alias ls='ls $LS_OPTIONS'
+fi
 export EDITOR="vim"
 
 # Some more alias to avoid making mistakes:
  alias rm='rm -i'
  alias cp='cp -i'
  alias mv='mv -i'
+
+# Docker Commands
+function docker-bash() {
+    docker run -i -t $1 /bin/bash    
+}
+
+function docker-bash-running() {
+    docker exec -i -t $1 /bin/bash
+}
+
+function docker-remove-all-containers() {
+    docker rm $(docker ps -a -q)
+}
+
+function docker-remove-all-images() {
+    docker rmi -f $(docker images -q) 
+}
+
+function docker-remove-all-volumes() {
+    docker volume rm $(docker volume ls -q)
+}
