@@ -59,7 +59,8 @@ export PS1
 # You may uncomment the following lines if you want `ls' to be colorized:
 if [ "$(uname)" == "Darwin" ]; then
     # Do something under Mac OS X platform        
-    alias ls='ls'
+    export CLICOLOR=1
+    export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     # Do something under GNU/Linux platform
     export LS_OPTIONS='--color=auto'
@@ -73,3 +74,7 @@ export EDITOR="vim"
  alias cp='cp -i'
  alias mv='mv -i'
 
+# History Modifications
+shopt -s histappend
+export HISTTIMEFORMAT="%h/%d - %H:%M:%S "
+export HISTCONTROL=ignoredups:erasedups:ignorespace
