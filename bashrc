@@ -4,19 +4,14 @@
 
 # Include all files in commands directory
 function smash_load_commands {
-    echo -e "Loading SMASH commands"
-    echo -e "======================"
     for fnc in ~/.smash/commands/*.sh
     do
-#        echo "Loading: "$(basename $fnc .sh)
         source $fnc
     done
-    echo -e "Done loading SMASH Commands\n"
 }
 
 # Load Git configuration
 function smash_load_git {
-    echo -e "Loading GIT functions"
     for fnc in ~/.smash/git/*.sh
     do
         source $fnc
@@ -52,7 +47,6 @@ PS1+="\$(git_branch)"
 PS1+="\[$COLOR_BLUE\]"
 PS1+="[\w] \$ "
 PS1+="\[$COLOR_RESET\]"
-
 
 export PS1
 
